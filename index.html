@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Trim audio online for free. Preview your audio, select the exact section, and download it as a WAV file.">
+  <title>AudioTrim — Free Online Audio Trimmer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AudioTrim home">
+      <span class="brand-mark" aria-hidden="true">▥</span>
+      <span>AudioTrim</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="#tool">Audio trimmer</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> FREE · PRIVATE · IN YOUR BROWSER</div>
+      <h1>Trim your audio<br><span>in seconds.</span></h1>
+      <p>Upload a sound, choose the part you need, and download your trimmed clip.</p>
+    </section>
+
+    <section class="editor panel" id="tool" aria-labelledby="editor-title">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h2 id="editor-title">Audio editor</h2>
+        </div>
+        <span class="privacy"><span aria-hidden="true">●</span> Files stay on your device</span>
+      </div>
+
+      <label class="drop-zone" id="drop-zone" for="audio-file">
+        <input id="audio-file" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.aac,.flac,.webm">
+        <span class="upload-icon" aria-hidden="true">↑</span>
+        <strong>Choose an audio file</strong>
+        <span>or drag and drop it here</span>
+        <small>MP3, WAV, M4A, OGG and other browser-supported audio formats</small>
+      </label>
+
+      <div class="file-row hidden" id="file-row">
+        <div class="file-icon" aria-hidden="true">♫</div>
+        <div class="file-info">
+          <strong id="file-name">audio-file</strong>
+          <span id="file-meta">Ready to edit</span>
+        </div>
+        <button class="icon-button" id="remove-file" type="button" aria-label="Remove audio">×</button>
+      </div>
+
+      <div class="wave-area">
+        <div class="wave-header">
+          <span>WAVEFORM SELECTION</span>
+          <span id="selection-label">Load an audio file to begin</span>
+        </div>
+        <div class="wave-wrap" id="wave-wrap">
+          <canvas id="waveform" aria-label="Audio waveform. Drag on the waveform to select a section."></canvas>
+          <div class="wave-placeholder" id="wave-placeholder">
+            <span class="placeholder-bars">▂ ▅ ▃ ▇ ▄ ▆ ▂ ▅ ▇ ▃ ▆ ▄ ▂</span>
+            <span>Your waveform will appear here</span>
+          </div>
+        </div>
+        <div class="time-scale">
+          <span id="current-time">00:00</span>
+          <span id="total-time">00:00</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="time-inputs">
+          <label>Start time
+            <input id="start-time" type="text" inputmode="decimal" value="00:00.00" aria-describedby="time-help">
+          </label>
+          <label>End time
+            <input id="end-time" type="text" inputmode="decimal" value="00:00.00" aria-describedby="time-help">
+          </label>
+        </div>
+        <div class="action-buttons">
+          <button class="button secondary" id="play-selection" type="button" disabled>▶ Preview selection</button>
+          <button class="button primary" id="trim-download" type="button" disabled>↓ Trim &amp; download WAV</button>
+        </div>
+      </div>
+      <p class="help" id="time-help">Time format: minutes:seconds, for example <code>01:23.50</code>. You can also drag across the waveform.</p>
+      <div class="status" id="status" role="status" aria-live="polite">Choose an audio file to get started.</div>
+      <audio id="player" controls class="audio-player hidden"></audio>
+    </section>
+
+    <section class="features" id="how-it-works">
+      <article class="feature-card"><span class="feature-icon purple">↗</span><h3>Simple trimming</h3><p>Choose start and end points with time fields or the waveform.</p></article>
+      <article class="feature-card"><span class="feature-icon green">◇</span><h3>Private by design</h3><p>Your audio is processed locally in your browser, not uploaded to a server.</p></article>
+      <article class="feature-card"><span class="feature-icon blue">▣</span><h3>Works on your device</h3><p>Use a modern browser on desktop, tablet, or mobile.</p></article>
+      <article class="feature-card"><span class="feature-icon pink">♡</span><h3>Free to use</h3><p>No account or subscription is needed for this tool.</p></article>
+    </section>
+
+    <section class="how panel">
+      <p class="eyebrow">THREE QUICK STEPS</p>
+      <h2>How it works</h2>
+      <ol>
+        <li><span>01</span><div><strong>Upload your audio</strong><p>Choose a supported audio file from your device.</p></div></li>
+        <li><span>02</span><div><strong>Select the part you want</strong><p>Drag across the waveform or enter the start and end times.</p></div></li>
+        <li><span>03</span><div><strong>Download your clip</strong><p>Preview your selection, then save it as a WAV file.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">▥</span><span>AudioTrim</span></a>
+    <p>Made for quick edits. Your audio stays yours.</p>
+  </footer>
+</body>
+</html>
